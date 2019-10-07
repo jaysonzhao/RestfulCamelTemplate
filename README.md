@@ -1,16 +1,18 @@
-# Spring-Boot Camel QuickStart
-
-This example demonstrates how you can use Apache Camel with Spring Boot.
-
-The quickstart uses Spring Boot to configure a little application that includes a Camel route that triggers a message every 5th second, and routes the message to a log.
+# Spring-Boot Camel  Template for Restful Integration
 
 ### Building
 
-The example can be built with
+    mvn clean install -Dfabric8.skip=true
 
-    mvn clean install
 
-### Running the example in OpenShift
+
+### Running
+    
+
+      mvn spring-boot:run
+
+
+### Running in OpenShift
 
 It is assumed that:
 - OpenShift platform is already running, if not you can find details how to [Install OpenShift at your site](https://docs.openshift.com/container-platform/3.3/install_config/index.html).
