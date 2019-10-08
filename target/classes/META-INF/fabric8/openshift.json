@@ -10,7 +10,7 @@
         "discovery.3scale.net/discovery-version" : "v1",
         "discovery.3scale.net/scheme" : "http",
         "discovery.3scale.net/port" : "8080",
-        "fabric8.io/git-commit" : "9626becc7b87cf1abe68edd291e084a9c3637428",
+        "fabric8.io/git-commit" : "55c5700c0423d88c6d0eece21765b3135b6bd539",
         "fabric8.io/iconUrl" : "img/icons/camel.svg",
         "fabric8.io/git-branch" : "master",
         "prometheus.io/scrape" : "true",
@@ -44,7 +44,7 @@
     "kind" : "DeploymentConfig",
     "metadata" : {
       "annotations" : {
-        "fabric8.io/git-commit" : "9626becc7b87cf1abe68edd291e084a9c3637428",
+        "fabric8.io/git-commit" : "55c5700c0423d88c6d0eece21765b3135b6bd539",
         "fabric8.io/iconUrl" : "img/icons/camel.svg",
         "fabric8.io/git-branch" : "master",
         "fabric8.io/metrics-path" : "dashboard/file/camel-routes.json/?var-project=camel-ose-springboot-xml&var-version=1.0.0-SNAPSHOT"
@@ -74,7 +74,7 @@
       "template" : {
         "metadata" : {
           "annotations" : {
-            "fabric8.io/git-commit" : "9626becc7b87cf1abe68edd291e084a9c3637428",
+            "fabric8.io/git-commit" : "55c5700c0423d88c6d0eece21765b3135b6bd539",
             "fabric8.io/iconUrl" : "img/icons/camel.svg",
             "fabric8.io/git-branch" : "master",
             "fabric8.io/metrics-path" : "dashboard/file/camel-routes.json/?var-project=camel-ose-springboot-xml&var-version=1.0.0-SNAPSHOT"
@@ -99,7 +99,7 @@
                 }
               }
             } ],
-            "image" : "mycompany/camel-ose-springboot-xml:snapshot-191007-231306-0817",
+            "image" : "camel-ose-springboot-xml:latest",
             "imagePullPolicy" : "IfNotPresent",
             "livenessProbe" : {
               "httpGet" : {
@@ -147,6 +147,16 @@
       },
       "triggers" : [ {
         "type" : "ConfigChange"
+      }, {
+        "imageChangeParams" : {
+          "automatic" : true,
+          "containerNames" : [ "spring-boot" ],
+          "from" : {
+            "kind" : "ImageStreamTag",
+            "name" : "camel-ose-springboot-xml:latest"
+          }
+        },
+        "type" : "ImageChange"
       } ]
     }
   }, {

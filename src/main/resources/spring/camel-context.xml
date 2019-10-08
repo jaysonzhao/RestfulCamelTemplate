@@ -2,16 +2,29 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd        http://camel.apache.org/schema/spring       http://camel.apache.org/schema/spring/camel-spring.xsd">
     <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
-        <restConfiguration bindingMode="auto" component="servlet"
+        <restConfiguration bindingMode="json" component="servlet"
             contextPath="/rest" port="8080"/>
-        <rest apiDocs="true"
-            id="rest-315aadb3-0f6c-4696-964a-f8ba9dc3f8b5" path="/service">
-            <post id="post-ead9902d-365a-493b-9870-cfb058490142" uri="/match">
+        <rest apiDocs="true" consumes="application/json"
+            id="rest-315aadb3-0f6c-4696-964a-f8ba9dc3f8b5"
+            path="/service" produces="application/json">
+            <post apiDocs="true" consumes="applicatoin/json"
+                id="post-ead9902d-365a-493b-9870-cfb058490142"
+                produces="application/json" uri="/match">
                 <to uri="direct:inbox"/>
             </post>
         </rest>
         <route id="_injectroute">
             <from id="_fromIR1" uri="direct:inbox"/>
+            <onException id="_onException1">
+                <exception>java.lang.Exception</exception>
+                <redeliveryPolicy maximumRedeliveries="3"/>
+                <continued>
+                    <constant>false</constant>
+                </continued>
+                <log id="_logex" message=">> Exception : ${body}"/>
+                <setExchangePattern id="_setExchangePattern1" pattern="InOnly"/>
+                <to id="_toerror" uri="direct:error"/>
+            </onException>
             <log id="route-log" message=">>> ${body}"/>
             <setExchangePattern id="_setExchangePattern3" pattern="InOnly"/>
             <to id="_to1" uri="amqp:queue:q.hzinte.logq"/>
