@@ -12,6 +12,10 @@
       mvn spring-boot:run
 
 
+### Local test
+curl -k http://localhost:8080/rest/service/match -X POST  -d '{ "name":"John", "age":30, "car":null }' -H 'content-type: application/json'
+
+
 ### Running in OpenShift
 
 It is assumed that:
