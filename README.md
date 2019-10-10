@@ -13,7 +13,7 @@
 
 
 ### Local test
-curl -k http://localhost:8080/rest/service/match -X POST  -d '{ "name":"John", "age":30, "car":null }' -H 'content-type: application/json'
+curl -k http://localhost:8080/rest/service/match -X POST  -d '{ "name":"John", "age":30, "car":"Porche" }' -H 'content-type: application/json'
 
 
 ### Running in OpenShift

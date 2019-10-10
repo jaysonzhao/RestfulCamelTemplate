@@ -1,2 +1,3 @@
 org\mycompany\AMQPConfiguration.class
+org\mycompany\MyProcessor.class
 org\mycompany\Application.class

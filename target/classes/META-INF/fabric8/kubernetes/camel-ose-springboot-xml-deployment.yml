@@ -3,7 +3,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   annotations:
-    fabric8.io/git-commit: 55c5700c0423d88c6d0eece21765b3135b6bd539
+    fabric8.io/git-commit: fe38f30d13935552dd408cdc34d8e9013544efd0
     fabric8.io/iconUrl: img/icons/camel.svg
     fabric8.io/git-branch: master
     fabric8.io/metrics-path: dashboard/file/camel-routes.json/?var-project=camel-ose-springboot-xml&var-version=1.0.0-SNAPSHOT
@@ -24,7 +24,7 @@ spec:
   template:
     metadata:
       annotations:
-        fabric8.io/git-commit: 55c5700c0423d88c6d0eece21765b3135b6bd539
+        fabric8.io/git-commit: fe38f30d13935552dd408cdc34d8e9013544efd0
         fabric8.io/iconUrl: img/icons/camel.svg
         fabric8.io/git-branch: master
         fabric8.io/metrics-path: dashboard/file/camel-routes.json/?var-project=camel-ose-springboot-xml&var-version=1.0.0-SNAPSHOT
