@@ -39,20 +39,17 @@
 			<to id="_to1" uri="amqp:queue:q.hzinte.logq" />
             <to id="_callrest" uri="direct:restcallroute"/>
 			<transform id="_transform1">
-				<simple>"&gt;&gt;&gt;&gt;Response   ${body}"</simple>
+				<simple>"${body}"</simple>
 			</transform>
 			<to id="_to3" uri="mock:responsejson" />
 		</route>
 		<route id="_restcall">
 		    <from id="_restUR" uri="direct:restcallroute" />
-			<setBody id="_setBody1">
-				<simple />
-			</setBody>
 			<setHeader headerName="CamelHttpMethod" id="_setHeader1">
 				<constant>GET</constant>
 			</setHeader>
 			<to id="_to2"
-				uri="https://api.bittrex.com/api/v1.1/public/getcurrencies" />
+				uri="https://api.bittrex.com/api/v1.1/public/getcurrencies?bridgeEndpoint=true"/>
 		</route>
 		<route id="_auditroute" streamCache="true">
 			<from id="_fromauditUR" uri="direct:audit" />

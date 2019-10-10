@@ -10,9 +10,9 @@
         "discovery.3scale.net/discovery-version" : "v1",
         "discovery.3scale.net/scheme" : "http",
         "discovery.3scale.net/port" : "8080",
-        "fabric8.io/git-commit" : "3eb0571b6f2111166c416f1df94918badccc4ddc",
+        "fabric8.io/git-commit" : "9b8882cf5b82c494b7b6b9dcf2bdc0f8371b32a4",
         "fabric8.io/iconUrl" : "img/icons/camel.svg",
-        "fabric8.io/git-branch" : "master",
+        "fabric8.io/git-branch" : "develop",
         "prometheus.io/scrape" : "true",
         "prometheus.io/port" : "9779"
       },
@@ -44,9 +44,9 @@
     "kind" : "Deployment",
     "metadata" : {
       "annotations" : {
-        "fabric8.io/git-commit" : "3eb0571b6f2111166c416f1df94918badccc4ddc",
+        "fabric8.io/git-commit" : "9b8882cf5b82c494b7b6b9dcf2bdc0f8371b32a4",
         "fabric8.io/iconUrl" : "img/icons/camel.svg",
-        "fabric8.io/git-branch" : "master",
+        "fabric8.io/git-branch" : "develop",
         "fabric8.io/metrics-path" : "dashboard/file/camel-routes.json/?var-project=camel-ose-springboot-xml&var-version=1.0.0-SNAPSHOT"
       },
       "labels" : {
@@ -70,9 +70,9 @@
       "template" : {
         "metadata" : {
           "annotations" : {
-            "fabric8.io/git-commit" : "3eb0571b6f2111166c416f1df94918badccc4ddc",
+            "fabric8.io/git-commit" : "9b8882cf5b82c494b7b6b9dcf2bdc0f8371b32a4",
             "fabric8.io/iconUrl" : "img/icons/camel.svg",
-            "fabric8.io/git-branch" : "master",
+            "fabric8.io/git-branch" : "develop",
             "fabric8.io/metrics-path" : "dashboard/file/camel-routes.json/?var-project=camel-ose-springboot-xml&var-version=1.0.0-SNAPSHOT"
           },
           "labels" : {
@@ -95,7 +95,7 @@
                 }
               }
             } ],
-            "image" : "mycompany/camel-ose-springboot-xml:snapshot-191010-131804-0020",
+            "image" : "mycompany/camel-ose-springboot-xml:snapshot-191010-211655-0138",
             "imagePullPolicy" : "IfNotPresent",
             "livenessProbe" : {
               "httpGet" : {
