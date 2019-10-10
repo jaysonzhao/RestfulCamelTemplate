@@ -7,7 +7,7 @@ metadata:
     discovery.3scale.net/discovery-version: v1
     discovery.3scale.net/scheme: http
     discovery.3scale.net/port: "8080"
-    fabric8.io/git-commit: 9b8882cf5b82c494b7b6b9dcf2bdc0f8371b32a4
+    fabric8.io/git-commit: b2bb2637c3d1bd829828a6aeb4f6a3fd2a23c9de
     fabric8.io/iconUrl: img/icons/camel.svg
     fabric8.io/git-branch: develop
     prometheus.io/scrape: "true"

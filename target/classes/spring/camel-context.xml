@@ -2,6 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd        http://camel.apache.org/schema/spring       http://camel.apache.org/schema/spring/camel-spring.xsd">
+	<!-- Event Notifier -->
+	<bean id="auditEventNotifier"
+		class="org.mycompany.AuditEventNotifier">
+	</bean>
 	<camelContext id="camel"
 		xmlns="http://camel.apache.org/schema/spring">
 		<dataFormats>
@@ -37,19 +41,19 @@
 			<setExchangePattern id="_setExchangePattern3"
 				pattern="InOnly" />
 			<to id="_to1" uri="amqp:queue:q.hzinte.logq" />
-            <to id="_callrest" uri="direct:restcallroute"/>
+			<to id="_callrest" uri="direct:restcallroute" />
 			<transform id="_transform1">
 				<simple>"${body}"</simple>
 			</transform>
 			<to id="_to3" uri="mock:responsejson" />
 		</route>
 		<route id="_restcall">
-		    <from id="_restUR" uri="direct:restcallroute" />
+			<from id="_restUR" uri="direct:restcallroute" />
 			<setHeader headerName="CamelHttpMethod" id="_setHeader1">
 				<constant>GET</constant>
 			</setHeader>
 			<to id="_to2"
-				uri="https://api.bittrex.com/api/v1.1/public/getcurrencies?bridgeEndpoint=true"/>
+				uri="https://api.bittrex.com/api/v1.1/public/getcurrencies?bridgeEndpoint=true" />
 		</route>
 		<route id="_auditroute" streamCache="true">
 			<from id="_fromauditUR" uri="direct:audit" />
